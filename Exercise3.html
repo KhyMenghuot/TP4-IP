@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter1</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        height: 100vh;
+        background-color: aqua;
+        display: grid;
+        place-items: center;
+    }
+    
+    .container {
+        width: 500px;
+        position: relative;
+        border: 5px solid black;
+        margin: auto;
+        height: 700px;
+        padding: 100px 40px;
+    }
+    
+    h1 {
+        text-align: center;
+        font-size: 50px;
+    }
+    
+    h2 {
+        text-align: center;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 80px;
+        color: green;
+        padding-top: 40px;
+    }
+    
+    .btns {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 80px;
+    }
+    
+    .btns button {
+        width: 130px;
+        padding: 15px 0;
+        font-size: 18px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1>Counter</h1>
+        <h2 id="num">0</h2>
+        <div class="btns">
+            <button onclick=dec()>DECREASE</button>
+            <button onclick=reset()>RESET</button>
+            <button onclick=inc()>INCREASE</button>
+        </div>
+    </div>
+    <script>
+        if (localStorage.getItem('num') == null) {
+            document.getElementById('num').innerHTML = "0";
+        } else {
+            document.getElementById('num').innerHTML = localStorage.getItem('num')
+        }
+
+        function dec() {
+            let count = parseInt(document.getElementById('num').innerHTML);
+            document.getElementById('num').innerHTML = count - 1;
+            localStorage.setItem('num', count - 1)
+        }
+
+        function inc() {
+            let count = parseInt(document.getElementById('num').innerHTML);
+            document.getElementById('num').innerHTML = count + 1;
+            localStorage.setItem('num', count + 1)
+        }
+
+        function reset() {
+            let count = parseInt(document.getElementById('num').innerHTML);
+            document.getElementById('num').innerHTML = 0;
+            localStorage.setItem('num', count = 0)
+        }
+    </script>
+
+
+</body>
+
+</html>
